@@ -8,6 +8,47 @@
     <title>Game</title>
   </head>
   <body>
-    
+    <div class="container">
+      <h1>Pig Dice!</h1>
+
+      <div class="row">
+        <div class="col-md-6">
+          <form id="playerOne">
+            <div class="form-group">
+              <label for="player-one-name">Player One Name:</label>
+              <input type="text" class="form-control" id="player-one-name">
+              <button class="btn btn-primary" type="submit">Submit</button>
+              <br></br>
+              <button type="button" class="btn btn-success btn-lg">Roll</button>
+              <button type="button" class="btn btn-warning btn-lg">Hold</button>
+              <div id="show-scores1">
+                  <p>Current Score: <span class="current-score1"></span></p>
+                  <p>Total Score: <span class="total-score1"></span></p>          
+              </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-6">
+          <form id="playerTwo">
+            <div class="form-group">
+              <label for="player-two-name">Player Two Name:</label>
+              <input type="text" class="form-control" id="player-two-name">
+              <button class="btn btn-primary" type="submit">Submit</button>
+              <br></br>
+              <button type="button" class="btn btn-success btn-lg">Roll</button>
+              <button type="button" class="btn btn-warning btn-lg">Hold</button>
+              <div id="show-scores2">
+                  <p>Current Score: <span class="currentScore"></span></p>
+                  <p>Total Score: <span class="totalScore"></span></p>
+              </div>
+
+            </div>
+        </div>
+
+
+
+      </div>
+    </div>
   </body>
 </html>
