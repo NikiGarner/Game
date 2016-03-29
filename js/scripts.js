@@ -1,27 +1,29 @@
 //Business logic
-function player(currentScore, totalScore) {
+function Player(currentScore, totalScore) {
   this.currentScore = currentScore;
   this.totalScore = totalScore;
 }
 
-player.prototype.roll = function () {
+Player.prototype.roll = function () {
   var dieRoll = Math.floor(Math.random()*6)+1;
   return dieRoll;
 }
 
-player.prototype.showScores = function() {
-  $(".current-score1").text(player.currentScore);
-  $(".total-score1").text(player.totalScore);
+Player.prototype.showScores = function() {
+  $(".current-score").text(player.currentScore);
+  $(".total-score").text(player.totalScore);
 }
 
-player.prototype.turn = function() {
+Player.prototype.turn = function() {
   var currentRoll = this.roll();
+  while (this.totalScore <100);
     if (currentRoll !==1) {
       this.currentScore = this.currentScore + currentRoll;
     } else {
       this.currentScore = 0;
     }
-    return currentScore;
+    this.totalScore = this.totalScore + this.currentScore;
+  }
 }
 
 if (player.totalScore <100) {
@@ -29,16 +31,17 @@ if (player.totalScore <100) {
   return alert("You win!");
 }
 
-
 //user interface logic
 $(document).ready(function() {
   $("form#playerOne").submit(function() {
-       var inputtedPlayerName = $("input.player-one-name").val();
-       var playerOne = new Player(inputtedPlayerName, 0, 0);
+    event.preventDefault();
+    var inputtedPlayerName = $("input.player-one-name").val();
+    var playerOne = new Player(inputtedPlayerName, 0, 0);
   });
   $("form#playerTwo").submit(function() {
-       var inputtedPlayerName = $("input.player-two-name").val();
-       var playerTwo = new Player(inputtedPlayerName, 0, 0);
+    event.preventDefault();
+    var inputtedPlayerName = $("input.player-two-name").val();
+    var playerTwo = new Player(inputtedPlayerName, 0, 0);
   });
 
   $("button#hold").click(function(event){
@@ -50,33 +53,4 @@ $(document).ready(function() {
     this.player.turn();
     this.player.showScores();
   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  });
 });
