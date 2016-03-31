@@ -1,14 +1,14 @@
-# Movie-ticket
+# Pig Game
 
-#### By Molly McGlone
+#### By Molly McGlone & Niki Garner
 
 ## Description
 
-This application is a demonstration of constructors and prototypes using JavaScript.  The app asks users for information about themselves and the movie they want to see, then creates a customized movie ticket and price based on the user input.
+This application is a demonstration of constructors and prototypes using JavaScript.  The app allows a user to play a game of pig dice.
 
 ## Setup
 
-Install Movie-ticket by cloning this repository.
+Install Game by cloning this repository.
 
 ## Technologies Used
 
@@ -16,6 +16,4 @@ JavaScript and jQuery
 
 ### Legal
 
-Copyright (c) 2016 **Molly McGlone**
-
-
+Copyright (c) 2016 **Molly McGlone & Niki Garner**
