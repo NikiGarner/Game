@@ -1,8 +1,9 @@
 //Business logic
-function Player(playerName, currentScore, totalScore) {
+function Player(playerName, currentScore, totalScore, currentRoll) {
   this.playerName = playerName;
   this.currentScore = currentScore;
   this.totalScore = totalScore;
+  this.currentRoll = currentRoll;
 }
 
 Player.prototype.roll = function () {
@@ -18,15 +19,15 @@ Player.prototype.roll = function () {
 
 Player.prototype.turn = function() {
   console.log("function test");
-  var currentRoll = this.roll();
-  $(".current-roll").text(currentRoll);
+  this.currentRoll = this.roll();
+
   while (this.totalScore <100) {
-    if (currentRoll !==1) {
-      this.currentScore += currentRoll;
+    if (this.currentRoll !==1) {
+      this.currentScore += this.currentRoll;
     } else {
       this.currentScore = 0;
     }
-  $(".current-score").text(this.currentScore);
+  return this.currentRoll;
   return this.currentScore;
   }
 
@@ -62,25 +63,29 @@ $(document).ready(function() {
 
   $("button#hold1").click(function(event){
     console.log("hold button test player1");
-    playerOne.hold();
+    playerOne.totalScore += playerOne.currentScore;
+    $(".total-score1").text(playerOne.totalScore);
   });
 
   $("button#roll1").click(function(event) {
     playerOne.turn();
-    //playerOne.totalScore = playerOne.totalScore + playerOne.currentScore;
-    $(".total-score").text(playerOne.totalScore);
+    $(".current-roll1").text(playerOne.currentRoll);
+    $(".current-score1").text(playerOne.currentScore);
+    $(".total-score1").text(playerOne.totalScore);
     console.log("roll button test player1");
   });
 
   $("button#hold2").click(function(event){
     console.log("button test player2");
-    playerTwo.totalScore + playerTwo.currentScore;
-    playerTwo.showScores();
+    playerTwo.totalScore += playerTwo.currentScore;
+    $(".total-score2").text(playerTwo.totalScore);
   });
 
   $("button#roll2").click(function(event) {
     playerTwo.turn();
-    playerTwo.showScores();
+    $(".current-roll2").text(playerTwo.currentRoll);
+    $(".current-score2").text(playerTwo.currentScore);
+    $(".total-score2").text(playerTwo.totalScore);
     console.log("button test player2");
   });
 });
